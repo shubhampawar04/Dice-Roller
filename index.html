@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+</head>
+<style>
+    body{
+        background-color: #85FFBD;
+background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+height: 100px;
+    }
+    .app-heading {
+        text-align: center;
+        font-size: 50px;
+        color: #333;
+    }
+
+    .dice-imgs{
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+    }
+    .btn-dice{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        font-size: 20px;
+        background-color: aqua;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    .note{
+        display: block;
+        margin: 0 auto;
+        padding: 50px 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    @keyframes roll {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    .animate{
+        animation: roll 1s infinite;
+    }
+</style>
+<body>
+    <h1 class="app-heading">Dice Roller 🎲</h1>
+
+    <img id="imgElement" class="dice-imgs" src="default.png"/>
+
+    <button class="btn-dice" onclick="roll()">Dice Roller</button>
+
+
+    <script>
+       function roll(){
+        const min = 1;
+        const max = 6;
+     const randomNumbers = Math.round(Math.random()*(max-min)+min) ;
+        console.log(randomNumbers)
+       const imgElement = document.getElementById('imgElement');
+ switch(randomNumbers){
+    case 1 : imgElement.src = 'd1.png';
+    break;
+
+    case 2 : imgElement.src = 'd2.png';
+    break;
+
+    case 3 : imgElement.src = 'd3.png';
+    break;
+
+    case 4 : imgElement.src = 'd4.png';
+    break;
+
+    case 5 : imgElement.src = 'd5.png';
+    break;
+
+    case 6 : imgElement.src = 'd6.png';
+    break;
+ }
+imgElement.classList.add('animate');
+
+setTimeout(() => {
+    imgElement.classList.remove('animate');
+},1000);
+}
+    </script>
+</body>
+<h2 class="note">Let's play Dice and use your luck ❤️👍<br/><br/>
+Create By Shubham Pawar</h2>
+</html>
